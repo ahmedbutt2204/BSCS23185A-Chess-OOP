@@ -17,7 +17,7 @@ void king::drawpieces(int sr, int sc, int clr, int a)
         std::cout << "k";
     }
 
-    if (this->C == WHITE)
+    if (this->C == WHITE)  
     {   
             std::cout << "K";
     }*/
