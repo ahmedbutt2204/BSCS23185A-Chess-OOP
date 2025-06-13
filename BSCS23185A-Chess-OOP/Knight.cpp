@@ -58,7 +58,7 @@ bool knight::islegalmove(int sr, int sc, int dr, int dc, int turn, board* b, pla
        
     return (rowchange == 2 && colschange == 1 && !ismypiece(dr, dc, pla))
         || (rowchange == 1 && colschange == 2 && !ismypiece(dr, dc, pla));
-
+            
 }  
 
 bool knight::getcaslaval()
