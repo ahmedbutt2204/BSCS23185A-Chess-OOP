@@ -24,6 +24,9 @@
     <ClInclude Include="Bishop.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="King.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Utility.cpp">
