@@ -132,6 +132,7 @@
     <ClInclude Include="Utility.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Bishop.cpp" />
     <ClCompile Include="Piece.cpp" />
     <ClCompile Include="Utility.cpp" />
   </ItemGroup>
