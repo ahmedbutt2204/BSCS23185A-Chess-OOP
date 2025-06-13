@@ -65,7 +65,7 @@ bool knight::getcaslaval()
 {
     return this->casaval; 
 }
-
+  
 void knight::setcaslaval(bool _set)
 {
     this->casaval = _set;
