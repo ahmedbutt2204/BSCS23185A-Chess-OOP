@@ -64,7 +64,7 @@ bool bishop::islegalmove(int sr, int sc, int dr, int dc, int turn, board* b, pla
      
 bool bishop::getcaslaval()
 { 
-    return this->casaval;
+    return this->casaval;   
 }
    //ok
 void bishop::setcaslaval(bool _set)
