@@ -16,7 +16,7 @@ void getRowColbyLeftClick(int& rpos, int& cpos)
         {
             cpos = InputRecord.Event.MouseEvent.dwMousePosition.X;
             rpos = InputRecord.Event.MouseEvent.dwMousePosition.Y;
-            //time=time+2;
+            //time=time+2;;;;;;
             break; 
         }
         //Sleep(100);
