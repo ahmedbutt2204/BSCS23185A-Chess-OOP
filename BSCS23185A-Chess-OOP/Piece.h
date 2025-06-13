@@ -16,7 +16,7 @@ protected:
 public:
 	Piece(int _r, int _c, board* b, Color c);
 	virtual void drawpieces(int sr, int sc, int clr, int a) = 0;
-	  //int sr, int sc, int height, int width, ,Color c(draw arguments with graphics)
+	  //int sr, int sc, int height, int width, , ,Color c(draw arguments with graphics)
 	void move(int _r, int _c);
 	bool ismypiece(int i, int j, player* p);  
 	bool ishorizonatalmove(int _sr, int _sc, int _dr, int _dc);
@@ -29,7 +29,7 @@ public:
 	virtual bool islegalmove(int sr, int sc, int dr, int dc, int turn, board* b, player* pla, int psr, int psc, int pdr, int pdc) = 0;
 	virtual char getpiecesymbol(int i, int j) = 0;
 	virtual bool getcaslaval() = 0;
-	virtual void setcaslaval(bool _set) = 0;
+	virtual void setcaslaval(bool _set) = 0; 
 	Color getpiececolor();
 
 
