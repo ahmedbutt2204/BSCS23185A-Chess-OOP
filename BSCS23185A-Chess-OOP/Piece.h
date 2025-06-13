@@ -16,7 +16,7 @@ protected:
 public:
 	Piece(int _r, int _c, board* b, Color c);
 	virtual void drawpieces(int sr, int sc, int clr, int a) = 0;
-	  //int sr, int sc, int height, int width,,, Color c(draw arguments with graphics)
+	  //int sr, int sc, int height, int width,,Color c(draw arguments with graphics)
 	void move(int _r, int _c);
 	bool ismypiece(int i, int j, player* p);  
 	bool ishorizonatalmove(int _sr, int _sc, int _dr, int _dc);
