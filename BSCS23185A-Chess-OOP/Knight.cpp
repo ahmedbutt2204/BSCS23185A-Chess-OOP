@@ -46,7 +46,7 @@ char knight::getpiecesymbol(int i, int j)
 {
     if (B->getpiece(i, j) == nullptr)
     {
-        return '-';
+        return '-';   
     }
     return this->sym;
 }
