@@ -51,7 +51,7 @@ void bishop::drawpieces(int sr, int sc, int clr, int a)
     {
         gotoRowCol(sr + 3, sc - 2 + i);
         cout << char(-37);
-    }
+    }  
 
 }
 //pl
