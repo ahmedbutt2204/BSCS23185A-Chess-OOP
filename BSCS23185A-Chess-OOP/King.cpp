@@ -7,7 +7,7 @@ king::king(int _r, int _c, board* b, Color c, char ch)
     this->sym = ch;
     this->casaval = true;
 
-}
+}   
 
 
 void king::drawpieces(int sr, int sc, int clr, int a)
