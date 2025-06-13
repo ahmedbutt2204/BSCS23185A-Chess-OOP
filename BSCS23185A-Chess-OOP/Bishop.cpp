@@ -54,7 +54,7 @@ void bishop::drawpieces(int sr, int sc, int clr, int a)
     }
 
 }
-
+//pl
 bool bishop::islegalmove(int sr, int sc, int dr, int dc, int turn, board* b, player* pla, int psr, int psc, int pdr, int pdc)
 {
     return(isdiagonalmove(sr, sc, dr, dc) && (diagonalLTRpathclear(sr, sc, dr, dc, b) ||
