@@ -61,7 +61,7 @@ bool bishop::islegalmove(int sr, int sc, int dr, int dc, int turn, board* b, pla
         diagonalRTLpathclear(sr, sc, dr, dc, b)));
 
 }
-
+     
 bool bishop::getcaslaval()
 {
     return this->casaval;
