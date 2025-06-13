@@ -66,7 +66,7 @@ bool bishop::getcaslaval()
 {
     return this->casaval;
 }
-
+   //ok
 void bishop::setcaslaval(bool _set)
 {
     this->casaval = _set;
