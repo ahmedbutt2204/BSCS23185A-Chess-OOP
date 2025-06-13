@@ -152,7 +152,7 @@ bool Piece::diagonalRTLpathclear(int _sr, int _sc, int _dr, int _dc, board* _b)
 		ci = _sc;
 	}
 	else
-	{
+	{ 
 		return false;
 	}       
 	//r a   
