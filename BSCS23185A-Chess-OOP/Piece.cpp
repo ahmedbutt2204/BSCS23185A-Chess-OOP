@@ -148,7 +148,7 @@ bool Piece::diagonalRTLpathclear(int _sr, int _sc, int _dr, int _dc, board* _b)
 
 	else if (_sr < _dr && _sc > _dc) 
 	{
-		ri = _sr;
+		ri = _sr; 
 		ci = _sc;
 	}
 	else
