@@ -20,7 +20,7 @@ void king::drawpieces(int sr, int sc, int clr, int a)
     if (this->C == WHITE)  
     {   
             std::cout << "K";
-    }*/
+    }*/  
     SetClr(clr);
 
     for (int i = 0; i < a - 2; i++)
