@@ -125,6 +125,10 @@ void pawnemptybox(int Sr, int Sc, int height, int width, int clr)
 	}
 }
 
+int chess::getturn()
+{
+	return this->turn;
+}
 
 
 
