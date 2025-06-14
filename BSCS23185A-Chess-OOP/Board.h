@@ -17,5 +17,6 @@ public:
 	Piece*& getpieceem(int i, int j);
 	//Declare methods to draw board cells and display full board
 	void changeboard(int sr, int sc, int dr, int dc, board* _b, int turn, int& i, int& j, int psr, int psc, int pdr, int pdc);
-	
+	void tempchangeboard(int sr, int sc, int dr, int dc, Piece* p, board* b, Piece* p1, int i, int j);
+
 };
