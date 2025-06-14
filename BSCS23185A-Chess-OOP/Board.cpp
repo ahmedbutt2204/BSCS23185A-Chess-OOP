@@ -291,5 +291,5 @@ const board* board::operator=(const board* h1)
 		}
 	}
 
-	
+	return this;
 }
