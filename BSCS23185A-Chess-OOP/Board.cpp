@@ -218,3 +218,41 @@ void board::changeboard(int sr, int sc, int dr, int dc, board* _b, int turn, int
 
 
 }
+
+
+void board::tempchangeboard(int sr, int sc, int dr, int dc, Piece* p, board* _b, Piece* p1, int i, int j)
+{
+
+	Piece* ptr = _b->getpiece(sr, i);
+	Piece* ptr1 = _b->getpiece(dr, j);
+
+	if (ptr != nullptr && ptr1 != nullptr && (ptr->getpiecesymbol(sr, i) == 'k' || ptr->getpiecesymbol(sr, i) == 'K')
+		&& (ptr1->getpiecesymbol(dr, j) == 'R' || ptr1->getpiecesymbol(dr, j) == 'r'))
+	{
+		if ((sr == 7 && sc == 4 && dr == 7 && dc == 7) || (sr == 0 && sc == 4 && dr == 0 && dc == 7))
+		{
+			this->ps[sr][sc] = this->ps[sr][sc + 2];
+			this->ps[sr][sc + 2] = nullptr;
+			this->ps[dr][dc] = this->ps[dr][dc - 2];
+			this->ps[dr][dc - 2] = nullptr;
+		}
+
+		if ((sr == 7 && sc == 4 && dr == 7 && dc == 0) || (sr == 0 && sc == 4 && dr == 0 && dc == 0))
+		{
+			this->ps[sr][sc] = this->ps[sr][sc - 2];
+			this->ps[sr][sc - 2] = nullptr;
+			this->ps[dr][dc] = this->ps[dr][dc + 3];
+			this->ps[dr][dc + 3] = nullptr;
+		}
+	}
+	else
+	{
+		this->ps[sr][sc] = this->ps[dr][dc];
+		this->ps[dr][dc] = p;
+
+	}
+
+
+
+}
+
