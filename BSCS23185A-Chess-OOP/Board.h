@@ -15,3 +15,4 @@ public:
 	void displayboard(int height, int width);
 	Piece* getpiece(int i, int j);
 	Piece*& getpieceem(int i, int j);
+	//Declare methods to draw board cells and display full board
