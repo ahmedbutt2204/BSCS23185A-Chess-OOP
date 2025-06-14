@@ -274,3 +274,22 @@ board::board(const board& h1)
 
 }
 
+
+const board* board::operator=(const board* h1)
+{
+	if (this == h1)
+	{
+		return this;
+	}
+
+
+	for (int i = 0; i < 8; i++)
+	{
+		for (int j = 0; j < 8; j++)
+		{
+			this->ps[i][j] = h1->ps[i][j];
+		}
+	}
+
+	
+}
