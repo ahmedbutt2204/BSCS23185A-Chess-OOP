@@ -51,6 +51,10 @@ public:
 	void unhiglighting(bool**& bmap, int height, int width);
 	bool checkpawnpromote(char ch);
 	void pawnpromotiongraphics(int height, int width, int clr, board* b, int _dr, int _dc);
+	bool check(int psr, int psc, int pdr, int pdc);
+	void findking(int& cr, int& cc);
+	bool selfcheck(int _sr, int _sc, int _dr, int _dc, int psr, int psc, int pdr, int pdc);
+	void castlecheck(board* ptr, int _sr, int _sc, int _t);
 
 
 
