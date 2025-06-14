@@ -526,6 +526,33 @@ void chess::turnchange()
 }
 
 
+void drawundobutton()
+{
+
+	unemptybox(43, 72, 10, 10, BLUE);
+
+	for (int i = 0; i < 6; i++)
+	{
+		gotoRowCol(48, 79 - i);
+		std::cout << char(-37);
+	}
+	gotoRowCol(47, 75);
+	std::cout << char(-37);
+
+	gotoRowCol(46, 76);
+	std::cout << char(-37);
+
+	gotoRowCol(49, 75);
+	std::cout << char(-37);
+
+	gotoRowCol(50, 76);
+	std::cout << char(-37);
+
+	gotoRowCol(55, 75);
+	std::cout << "Undo" << std::endl;
+}
+
+
 
 
 
