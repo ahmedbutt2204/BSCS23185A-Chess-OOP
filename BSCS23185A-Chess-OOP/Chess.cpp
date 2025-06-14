@@ -597,6 +597,33 @@ bool redocheck(int f, int g)
 	return false;
 }
 
+void chess::castlecheck(board* ptr, int _sr, int _sc, int _t)
+{
+	if (ptr->getpiece(_sr, _sc) == nullptr)
+	{
+		return;
+	}
+	char ch = ptr->getpiece(_sr, _sc)->getpiecesymbol(_sr, _sc);
+
+	if (_t == WHITETURN)
+	{
+		if (ch == 'K' || (ch == 'R' && _sr == 7 && _sc == 0) ||
+			(ch == 'R' && _sr == 7 && _sc == 7))
+		{
+			ptr->getpiece(_sr, _sc)->setcaslaval(false);
+		}
+	}
+
+	else if (_t == BLACK)
+	{
+		if (ch == 'k' || (ch == 'r' && _sr == 0 && _sc == 0) ||
+			(ch == 'r' && _sr == 0 && _sc == 7))
+		{
+			ptr->getpiece(_sr, _sc)->setcaslaval(false);
+		}
+	}
+}
+
 
 
 
