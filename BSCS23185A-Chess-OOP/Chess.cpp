@@ -130,5 +130,15 @@ int chess::getturn()
 	return this->turn;
 }
 
+void chess::sourceposition(int& _f, int& _g)
+{
+	getRowColbyLeftClick(this->sr, this->sc);
+	_f = this->sr;
+	_g = this->sc;
+	this->sr = this->sr - 2;
+	this->sr = this->sr / 8 - 1;
+
+	this->sc = this->sc / 8;
+}
 
 
