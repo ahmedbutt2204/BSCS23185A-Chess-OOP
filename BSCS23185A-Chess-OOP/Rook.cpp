@@ -29,3 +29,14 @@ void rook::drawpieces(int sr, int sc, int clr, int a)
             std::cout << char(-37);
         }
     }
+
+
+    for (int i = 0; i < a; i++)
+    {
+        gotoRowCol(sr + 2, sc - 2 + i);
+        std::cout << char(-37);
+    }
+
+    gotoRowCol(sr - 2, sc);
+    std::cout << char(-37);
+}
