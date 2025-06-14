@@ -138,3 +138,16 @@ void board::displayboard(int height, int width)
 	}
 
 }
+
+
+Piece* board::getpiece(int i, int j)
+{
+	return this->ps[i][j];
+
+}
+
+Piece*& board::getpieceem(int i, int j)
+{
+	return this->ps[i][j];
+
+}
