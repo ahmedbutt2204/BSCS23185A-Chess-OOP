@@ -52,6 +52,7 @@ char rook::getpiecesymbol(int i, int j)
 
 bool rook::islegalmove(int sr, int sc, int dr, int dc, int turn, board* b, player* pla, int psr, int psc, int pdr, int pdc)
 {
+    //Fix incorrect parameter in horizontal move check logic
     return (ishorizonatalmove(sr, sc, dr, sc) && horizontalpathclear(sr, sc, dr, dc, b))
         || (isverticalmove(sr, sc, dr, dc) && verticalpathclear(sr, sc, dr, dc, b));
 }
