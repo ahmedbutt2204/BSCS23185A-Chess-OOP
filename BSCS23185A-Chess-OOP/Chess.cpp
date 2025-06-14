@@ -278,6 +278,150 @@ bool chess::checkpawnpromote(char ch)
 }
 
 
+void chess::pawnpromotiongraphics(int height, int width, int clr, board* b, int _dr, int _dc)
+{
+	system("cls");
+	gotoRowCol(20, 22);
+	std::cout << "Choose your pawn promotion piece : " << std::endl;
+	for (int c = 0; c < 4; c++)
+	{
+		//pawnemptybox(rows / 7 + height * 1 + 1, 3 + c * width, height * 2, width * 2, BLUE);
+		pawnemptybox(23, c * width + 22, height, width, clr);
+	}
+
+	// rook shape :
+
+	gotoRowCol(25, 28);
+	std::cout << char(-37);
+
+	for (int i = 0; i < 6; i++)
+	{
+		for (int j = 0; j < 5; j++)
+		{
+			gotoRowCol(26 + i, j + 26);
+			std::cout << char(-37);
+			if (i == 5)
+			{
+				gotoRowCol(26 + i, j + 26 - 1);
+				std::cout << char(-37);
+
+				if (j == 4)
+				{
+					gotoRowCol(26 + i, j + 26 + 1);
+					std::cout << char(-37);
+				}
+			}
+		}
+	}
+
+	gotoRowCol(38, 26);
+	std::cout << " ROOK  " << std::endl;
+
+	// knight shape :
+
+	for (int i = 0; i < 5; i++)
+	{
+		gotoRowCol(25, 39 + i);
+		std::cout << char(-37);
+	}
+
+	for (int i = 0; i < 6; i++)
+	{
+		gotoRowCol(26 + i, 41);
+		std::cout << char(-37);
+	}
+
+	for (int i = 0; i < 5; i++)
+	{
+		gotoRowCol(32, 39 + i);
+		std::cout << char(-37);
+	}
+
+	gotoRowCol(38, 38);
+	std::cout << " KNIGHT  " << std::endl;
+
+
+	// Bishop :
+
+	gotoRowCol(25, 54);
+	std::cout << char(-37);
+	for (int i = 0; i < 6; i++)
+	{
+		for (int j = 0; j < 5; j++)
+		{
+			gotoRowCol(26 + i, j + 52);
+			std::cout << char(-37);
+		}
+	}
+
+	gotoRowCol(32, 54);
+	std::cout << char(-37);
+
+	for (int i = 0; i < 7; i++)
+	{
+		gotoRowCol(33, i + 51);
+		std::cout << char(-37);
+	}
+
+	gotoRowCol(38, 51);
+	std::cout << " BISHOP  " << std::endl;
+
+	// queen :
+
+	gotoRowCol(27, 67);
+	std::cout << char(-37);
+
+	for (int i = 1; i <= 5; i++)
+	{
+		for (int j = 5; j > i; j--)
+		{
+			gotoRowCol(28 + i - 1, 67 - j);
+			std::cout << " ";
+		}
+
+		for (int c = 0; c < 2 * i - 1; c++)
+		{
+			gotoRowCol(28 + i - 1, 68 - i + c);
+			std::cout << char(-37);
+		}
+
+	}
+
+	gotoRowCol(38, 65);
+	std::cout << "QUEEN ";
+
+	// mouse input :
+	int r, c;
+	getRowColbyLeftClick(r, c);
+
+	if (r >= 22 && r <= 36)
+	{
+		if (c >= 22 && c <= 35)
+		{
+
+			b->getpieceem(this->dr, this->dc) = new rook(this->dr, this->dc, b, b->getpiece(dr, dc)->getpiececolor(), this->turn);
+		}
+
+		else if (c >= 36 && c <= 49)
+		{
+			b->getpieceem(this->dr, this->dc) = new knight(this->dr, this->dc, b, b->getpiece(dr, dc)->getpiececolor(), this->turn);
+		}
+
+		else if (c >= 50 && c <= 63)
+		{
+			b->getpieceem(this->dr, this->dc) = new bishop(this->dr, this->dc, b, b->getpiece(dr, dc)->getpiececolor(), this->turn);
+		}
+		//Display pawn promotion UI and handle piece selection
+		else if (c >= 64 && c <= 77)
+		{
+			b->getpieceem(this->dr, this->dc) = new queen(this->dr, this->dc, b, b->getpiece(dr, dc)->getpiececolor(), this->turn);
+		}
+	}
+
+
+}
+
+
 
 
 
