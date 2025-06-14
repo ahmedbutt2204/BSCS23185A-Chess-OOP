@@ -37,3 +37,12 @@ void queen::drawpieces(int sr, int sc, int clr, int a)
     }
 
 }
+
+char queen::getpiecesymbol(int i, int j)
+{
+    if (B->getpiece(i, j) == nullptr)
+    {
+        return '-';
+    }
+    return this->sym;
+}
