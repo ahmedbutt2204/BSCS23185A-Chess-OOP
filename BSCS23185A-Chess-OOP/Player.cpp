@@ -14,3 +14,8 @@ std::string player::getpnamecolr()
 {
 	return this->pname;
 }
+
+Color player::getcolor()
+{
+	return this->C;
+}
