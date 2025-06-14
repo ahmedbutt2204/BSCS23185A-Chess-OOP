@@ -46,7 +46,9 @@ public:
 	void desposition();
 	bool isvaliddes(int i, int j, player* p);
 	void turnchange();
-
+	void computehiglight(bool**& bmap, int psr, int psc, int pdr, int pdc);
+	void higlighting(bool**& bmap, int height, int width);
+	void unhiglighting(bool**& bmap, int height, int width);
 
 
 
