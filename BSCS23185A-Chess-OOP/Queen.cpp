@@ -60,4 +60,10 @@ bool queen::islegalmove(int sr, int sc, int dr, int dc, int turn, board* b, play
 bool queen::getcaslaval()
 {
     return this->casaval;
+} 
+
+void queen::setcaslaval(bool _set)
+{
+    this->casaval = _set;
 }
+//getter for queen 
