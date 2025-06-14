@@ -151,3 +151,70 @@ Piece*& board::getpieceem(int i, int j)
 	return this->ps[i][j];
 
 }
+
+
+void board::changeboard(int sr, int sc, int dr, int dc, board* _b, int turn, int& i, int& j, int psr, int psc, int pdr, int pdc)
+{
+	Piece* ptr = _b->getpiece(sr, sc);
+	Piece* ptr1 = _b->getpiece(dr, dc);
+
+	/*char ch = ->getpiecesymbol(sr,sc);
+	char ch1 = _b->getpiece(dr, dc)->getpiecesymbol(dr,dc);
+
+	ch == 'K' && ch1 == 'R'*/
+	if (ptr != nullptr && ptr1 != nullptr && (ptr->getpiecesymbol(sr, sc) == 'k' || ptr->getpiecesymbol(sr, sc) == 'K')
+		&& (ptr1->getpiecesymbol(dr, dc) == 'R' || ptr1->getpiecesymbol(dr, dc) == 'r'))
+	{
+		if ((sr == 7 && sc == 4 && dr == 7 && dc == 7) || (sr == 0 && sc == 4 && dr == 0 && dc == 7))
+		{
+			this->ps[sr][sc + 2] = this->ps[sr][sc];
+			this->ps[sr][sc] = nullptr;
+			this->ps[dr][dc - 2] = this->ps[dr][dc];
+			this->ps[dr][dc] = nullptr;
+			i = sc + 2;
+			j = dc - 2;
+		}
+
+		if ((sr == 7 && sc == 4 && dr == 7 && dc == 0) || (sr == 0 && sc == 4 && dr == 0 && dc == 0))
+		{
+			this->ps[sr][sc - 2] = this->ps[sr][sc];
+			this->ps[sr][sc] = nullptr;
+			this->ps[dr][dc + 3] = this->ps[dr][dc];
+			this->ps[dr][dc] = nullptr;
+			i = sc - 2;
+			j = dc + 3;
+		}
+	}
+	else
+	{
+
+
+		if (turn == WHITETURN && _b->getpiece(sr, sc)->getpiecesymbol(sr, sc) == 'P'
+			&& ((sc - dc == -1 && _b->getpiece(dr, dc) == nullptr)
+				|| (sc - dc == 1 && _b->getpiece(dr, dc) == nullptr)))
+		{
+			this->ps[dr][dc] = this->ps[sr][sc];
+			this->ps[sr][sc] = nullptr;
+			this->ps[sr][dc] = nullptr;
+		}
+
+		else if (turn == BLACK && _b->getpiece(sr, sc)->getpiecesymbol(sr, sc) == 'p'
+			&& ((sc - dc == -1 && _b->getpiece(dr, dc) == nullptr)
+				|| (sc - dc == 1 && _b->getpiece(dr, dc) == nullptr)))
+		{
+			this->ps[dr][dc] = this->ps[sr][sc];
+			this->ps[sr][sc] = nullptr;
+			this->ps[sr][dc] = nullptr;
+		}
+
+		else
+		{
+			this->ps[dr][dc] = this->ps[sr][sc];
+			this->ps[sr][sc] = nullptr;
+		}
+
+
+	}
+
+
+}
