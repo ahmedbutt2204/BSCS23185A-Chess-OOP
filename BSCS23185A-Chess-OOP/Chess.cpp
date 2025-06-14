@@ -451,6 +451,28 @@ void chess::findking(int& cr, int& cc)
 }
 
 
+bool chess::check(int psr, int psc, int pdr, int pdc)
+{
+	turnchange();
+	int cr = 0, cc = 0;
+	findking(cr, cc);
+	turnchange();
+
+	for (int i = 0; i < 8; i++)
+	{
+		for (int j = 0; j < 8; j++)
+		{
+			if (isvalidsource(i, j, this->parray[this->turn]) &&
+				this->b->getpiece(i, j)->islegalmove(i, j, cr, cc, this->turn, this->b, this->parray[this->turn], psr, psc, pdr, pdc))
+			{
+				return true;
+			}
+		}
+	}
+	return false;
+
+}
+
 
 
 
