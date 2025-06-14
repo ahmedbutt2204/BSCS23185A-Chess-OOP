@@ -42,3 +42,8 @@ void player::settime(int _time)
 	this->time = this->time - _time;
 
 }
+
+int player::gettime()
+{
+	return this->time;
+}
