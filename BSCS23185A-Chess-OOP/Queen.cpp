@@ -46,3 +46,13 @@ char queen::getpiecesymbol(int i, int j)
     }
     return this->sym;
 }
+
+
+bool queen::islegalmove(int sr, int sc, int dr, int dc, int turn, board* b, player* pla, int psr, int psc, int pdr, int pdc)
+{
+    return (ishorizonatalmove(sr, sc, dr, dc) && horizontalpathclear(sr, sc, dr, dc, b))
+        || (isverticalmove(sr, sc, dr, dc) && verticalpathclear(sr, sc, dr, dc, b))
+        || (isdiagonalmove(sr, sc, dr, dc) && (diagonalLTRpathclear(sr, sc, dr, dc, b) ||
+            diagonalRTLpathclear(sr, sc, dr, dc, b)));
+
+}
