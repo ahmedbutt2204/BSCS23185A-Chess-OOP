@@ -552,6 +552,31 @@ void drawundobutton()
 	std::cout << "Undo" << std::endl;
 }
 
+void drawredobutton()
+{
+	unemptybox(43, 90, 10, 10, BLUE);
+
+	for (int i = 0; i < 6; i++)
+	{
+		gotoRowCol(48, 97 - i);
+		std::cout << char(-37);
+	}
+	gotoRowCol(47, 96);
+	std::cout << char(-37);
+
+	gotoRowCol(46, 95);
+	std::cout << char(-37);
+
+	gotoRowCol(49, 96);
+	std::cout << char(-37);
+
+	gotoRowCol(50, 95);
+	std::cout << char(-37);
+
+	gotoRowCol(55, 93);
+	std::cout << "Redo ";
+}
+
 
 
 
