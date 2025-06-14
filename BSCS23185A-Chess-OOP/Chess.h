@@ -35,3 +35,8 @@ private:
 	int turn;
 	player* parray[2];
 	board* b;
+public:
+
+	chess(std::string p1, std::string p2, int ti);
+	void displayturnmsg(player* a);
+	int getturn();
