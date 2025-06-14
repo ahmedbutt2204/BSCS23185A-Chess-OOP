@@ -221,6 +221,19 @@ void chess::computehiglight(bool**& bmap, int psr, int psc, int pdr, int pdc)
 
 }
 
+void chess::higlighting(bool**& bmap, int height, int width)
+{
+	for (int i = 0; i < 8; i++)
+	{
+		for (int j = 0; j < 8; j++)
+		{
+			if (bmap[i][j] == true)
+			{
+				emptybox(rows / 7 + height * i + 1, 3 + j * width, height - 2, width - 2, BLUE);
+			}
+		}
+	}
+}
 
 
 
