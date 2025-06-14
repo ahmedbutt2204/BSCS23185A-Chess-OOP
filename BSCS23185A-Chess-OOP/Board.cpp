@@ -256,3 +256,21 @@ void board::tempchangeboard(int sr, int sc, int dr, int dc, Piece* p, board* _b,
 
 }
 
+
+board::board(const board& h1)
+{
+	this->ps = new Piece * *[8];
+
+	for (int i = 0; i < 8; i++)
+	{
+		this->ps[i] = new Piece * [8];
+
+		for (int j = 0; j < 8; j++)
+		{
+			this->ps[i][j] = h1.ps[i][j];
+		}
+	}
+
+
+}
+
