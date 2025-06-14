@@ -473,6 +473,27 @@ bool chess::check(int psr, int psc, int pdr, int pdc)
 
 }
 
+bool chess::selfcheck(int _sr, int _sc, int _dr, int _dc, int psr, int psc, int pdr, int pdc)
+{
+	int i = 0; int j = 0;
+	Piece* ptr = b->getpiece(_dr, _dc);
+	Piece* ptr1 = b->getpiece(_sr, _sc);
+	Piece* ptr2 = nullptr;
+	if (pdr != -1 && pdc != -1)
+	{
+		ptr2 = b->getpiece(pdr, pdc);
+	}
+	b->changeboard(_sr, _sc, _dr, _dc, this->b, this->turn, i, j, psr, psc, pdr, pdc);
+	turnchange();
+	bool ch = check(psr, psc, pdr, pdc);
+	b->tempchangeboard(_sr, _sc, _dr, _dc, ptr, this->b, ptr1, i, j);
+	if (pdr != -1 && pdc != -1)
+	{
+		b->getpieceem(pdr, pdc) = ptr2;
+	}
+	turnchange();
+	return ch;
+}
 
 
 
