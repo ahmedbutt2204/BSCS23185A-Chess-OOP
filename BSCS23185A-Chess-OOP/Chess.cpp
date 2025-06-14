@@ -152,6 +152,35 @@ void chess::desposition()
 }
 
 
+bool chess::isvaliddes(int i, int j, player* pla)
+{
+	if (this->sr < 0 || this->sc < 0 || this->sr >= 8 || this->sc >= 8)
+	{
+		return false;
+	}
+	Piece* ptr = b->getpiece(i, j);
+	if (ptr == nullptr)
+	{
+		return true;
+	}
+
+	Piece* ptr1 = b->getpiece(this->sr, this->sc);
+	if (ptr1 == nullptr)
+	{
+		return false;
+	}
+
+	char ch = ptr1->getpiecesymbol(this->sr, this->sc);
+	char ch1 = ptr->getpiecesymbol(i, j);
+	if ((ch == 'K' || ch == 'k') && (ch1 == 'R' || ch1 == 'r')
+		&& this->b->getpiece(i, j)->horizontalpathclear(this->sr, this->sc, i, j, this->b))
+	{
+		return true;
+	}
+
+	return !(ptr->ismypiece(i, j, pla));
+}
+
 
 
 
