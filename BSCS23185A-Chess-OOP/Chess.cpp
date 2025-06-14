@@ -25,3 +25,9 @@ chess::chess(std::string p1, std::string p2, int ti)
 
 	this->b = new board();
 }
+
+void chess::displayturnmsg(player* p)
+{
+	gotoRowCol(26, 75);
+	std::cout << p->getpnamecolr() << " turns " << std::endl;
+}
