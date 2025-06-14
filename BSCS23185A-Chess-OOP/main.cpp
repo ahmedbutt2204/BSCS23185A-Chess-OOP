@@ -44,3 +44,29 @@ void mainbox(int Sr, int Sc, int height, int width, int clr)
 
 	SetClr(WHITE);
 }
+
+
+void line(std::string& p1, std::string& p2, int& ti)
+{
+	SetClr(BLUE);
+	for (int i = 0; i < 53; i++)
+	{
+		gotoRowCol(30, 31 + i);
+		std::cout << char(-37);
+	}
+	SetClr(WHITE);
+	gotoRowCol(27, 48);
+	std::cout << "PLAYER's NAME :  ";
+	gotoRowCol(40, 34);
+	std::cout << "PLAYER 1 NAME (BLACK) :  ";
+	std::cin >> p1;
+	gotoRowCol(50, 34);
+	std::cout << "PLAYER 2 NAME (WHITE) :  ";
+	std::cin >> p2;
+	gotoRowCol(58, 34);
+	std::cout << "TIME LIMIT :  ";
+	std::cin >> ti;
+}
+
+
+
