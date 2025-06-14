@@ -421,6 +421,35 @@ void chess::pawnpromotiongraphics(int height, int width, int clr, board* b, int 
 
 }
 
+void chess::findking(int& cr, int& cc)
+{
+	char ch = 0;
+	if (this->turn == BLACK)
+	{
+		ch = 'k';
+	}
+	if (this->turn == WHITETURN)
+	{
+		ch = 'K';
+	}
+
+	for (int i = 0; i < 8; i++)
+	{
+		for (int j = 0; j < 8; j++)
+		{
+			Piece* ptr = b->getpiece(i, j);
+
+			if (ptr != nullptr && ptr->getpiecesymbol(i, j) == ch)
+			{
+				cr = i;
+				cc = j;
+				return;
+			}
+		}
+	}
+
+}
+
 
 
 
