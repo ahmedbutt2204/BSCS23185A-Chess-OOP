@@ -35,3 +35,10 @@ void player::displaytime(int _t)
 	}
 }
 
+
+void player::settime(int _time)
+{
+
+	this->time = this->time - _time;
+
+}
