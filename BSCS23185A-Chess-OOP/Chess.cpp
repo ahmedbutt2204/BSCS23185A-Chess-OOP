@@ -198,6 +198,29 @@ bool chess::isvalidsource(int i, int j, player* p)
 
 }
 
+void chess::computehiglight(bool**& bmap, int psr, int psc, int pdr, int pdc)
+{
+	bmap = new bool* [8];
+	for (int i = 0; i < 8; i++)
+	{
+		bmap[i] = new bool[8] {};
+	}
+
+	for (int r = 0; r < 8; r++)
+	{
+		for (int c = 0; c < 8; c++)
+		{
+			if (isvaliddes(r, c, this->parray[this->turn]) &&
+				this->b->getpiece(this->sr, this->sc)->islegalmove(sr, sc, r, c, turn, b, parray[this->turn], psr, psc, pdr, pdc)
+				&& selfcheck(this->sr, this->sc, r, c, psr, psc, pdr, pdc) == false)
+			{
+				bmap[r][c] = true;
+			}
+		}
+	}
+
+}
+
 
 
 
