@@ -55,3 +55,16 @@ bool rook::islegalmove(int sr, int sc, int dr, int dc, int turn, board* b, playe
     return (ishorizonatalmove(sr, sc, dr, sc) && horizontalpathclear(sr, sc, dr, dc, b))
         || (isverticalmove(sr, sc, dr, dc) && verticalpathclear(sr, sc, dr, dc, b));
 }
+
+bool rook::getcaslaval()
+{
+    return this->casaval;
+}
+
+void rook::setcaslaval(bool _set)
+{
+    this->casaval = _set;
+}
+
+
+
