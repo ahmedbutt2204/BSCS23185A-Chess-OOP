@@ -131,7 +131,7 @@ bool pawn::islegalmove(int sr, int sc, int dr, int dc, int turn, board* b, playe
 
 	return false;
 }
-
+ 
 bool pawn::getcaslaval()
 {
 	return this->casaval;
