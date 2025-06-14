@@ -56,3 +56,8 @@ bool queen::islegalmove(int sr, int sc, int dr, int dc, int turn, board* b, play
             diagonalRTLpathclear(sr, sc, dr, dc, b)));
 
 }
+
+bool queen::getcaslaval()
+{
+    return this->casaval;
+}
