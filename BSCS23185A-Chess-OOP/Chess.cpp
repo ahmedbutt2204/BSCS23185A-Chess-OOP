@@ -256,6 +256,44 @@ void chess::unhiglighting(bool**& bmap, int height, int width)
 		}
 	}
 }
+bool chess::checkpawnpromote(char ch)
+{
+	if (ch != 'P' && ch != 'p')
+	{
+		return false;
+	}
+
+	if (turn == WHITETURN && this->dr == 0)
+	{
+		return true;
+	}
+
+	if (turn == BLACK && this->dr == 7)
+	{
+		return true;
+	}
+
+	return false;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
