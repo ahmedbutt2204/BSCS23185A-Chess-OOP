@@ -587,6 +587,31 @@ bool undocheck(int f, int g)
 	return false;
 }
 
+bool redocheck(int f, int g)
+{
+	if ((f >= 42 && f <= 54) && (g >= 89 && g <= 100))
+	{
+		return true;
+	}
+
+	return false;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
