@@ -26,3 +26,12 @@
 #define colorWhite   15
 
 
+
+class chess
+{
+private:
+	int sr; int sc;
+	int dr; int dc;
+	int turn;
+	player* parray[2];
+	board* b;
