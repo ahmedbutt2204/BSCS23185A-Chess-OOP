@@ -138,6 +138,6 @@ bool pawn::getcaslaval()
 //setted
 void pawn::setcaslaval(bool _set)
 {
-	this->casaval = _set;
+	this->casaval =  _set;
 }
 
