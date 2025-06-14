@@ -495,6 +495,31 @@ bool chess::selfcheck(int _sr, int _sc, int _dr, int _dc, int psr, int psc, int 
 	return ch;
 }
 
+bool chess::checkmate(int psr, int psc, int pdr, int pdc)
+{
+	turnchange();
+	for (int i = 0; i < 8; i++)
+	{
+		for (int j = 0; j < 8; j++)
+		{
+			for (int k = 0; k < 8; k++)
+			{
+				for (int l = 0; l < 8; l++)
+				{
+					if (isvalidsource(i, j, this->parray[this->turn]) && isvaliddes(k, l, this->parray[this->turn]) &&
+						b->getpiece(i, j) != nullptr && b->getpiece(i, j)->islegalmove(i, j, k, l, this->turn, this->b, this->parray[this->turn], psr, psc, pdr, pdc)
+						&& selfcheck(i, j, k, l, psr, psc, pdr, pdc) == false)
+					{
+						turnchange();
+						return false;
+					}
+				}
+			}
+		}
+	}
+	return true;
+}
+
 
 
 
