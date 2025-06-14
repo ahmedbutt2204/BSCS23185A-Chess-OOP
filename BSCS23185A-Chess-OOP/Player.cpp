@@ -9,3 +9,8 @@ player::player(std::string _name, Color c, int ti)
 	this->C = c;
 	this->time = ti;
 }
+
+std::string player::getpnamecolr()
+{
+	return this->pname;
+}
