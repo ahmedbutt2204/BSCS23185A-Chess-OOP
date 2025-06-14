@@ -577,6 +577,15 @@ void drawredobutton()
 	std::cout << "Redo ";
 }
 
+bool undocheck(int f, int g)
+{
+	if ((f >= 42 && f <= 54) && (g >= 72 && g <= 82))
+	{
+		return true;
+	}
+
+	return false;
+}
 
 
 
