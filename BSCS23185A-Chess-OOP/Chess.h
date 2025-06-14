@@ -56,6 +56,11 @@ public:
 	bool selfcheck(int _sr, int _sc, int _dr, int _dc, int psr, int psc, int pdr, int pdc);
 	void castlecheck(board* ptr, int _sr, int _sc, int _t);
 
+	bool checkmate(int psr, int psc, int pdr, int pdc);
+	void chessplay();
+	//Add checkmate logic and main game loop function chessplay()
+};
+
 
 
 
