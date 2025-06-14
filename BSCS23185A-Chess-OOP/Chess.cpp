@@ -520,6 +520,10 @@ bool chess::checkmate(int psr, int psc, int pdr, int pdc)
 	return true;
 }
 
+void chess::turnchange()
+{
+	this->turn = (this->turn + 1) % 2;
+}
 
 
 
