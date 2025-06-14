@@ -40,3 +40,18 @@ public:
 	chess(std::string p1, std::string p2, int ti);
 	void displayturnmsg(player* a);
 	int getturn();
+	//bool ismypiece(int i, int j, player* p);
+	void sourceposition(int& _f, int& _g);
+	bool isvalidsource(int i, int j, player* p);
+	void desposition();
+	bool isvaliddes(int i, int j, player* p);
+	void turnchange();
+
+
+
+
+
+
+
+
+
