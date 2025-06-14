@@ -40,3 +40,12 @@ void rook::drawpieces(int sr, int sc, int clr, int a)
     gotoRowCol(sr - 2, sc);
     std::cout << char(-37);
 }
+
+char rook::getpiecesymbol(int i, int j)
+{
+    if (B->getpiece(i, j) == nullptr)
+    {
+        return '-';
+    }
+    return this->sym;
+}
