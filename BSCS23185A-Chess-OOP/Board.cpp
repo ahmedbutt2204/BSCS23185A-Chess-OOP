@@ -119,3 +119,22 @@ void board::drawbox(int sr, int sc, int height, int width, int clr, int p1, int 
 
 }
 
+
+void board::displayboard(int height, int width)
+{
+	for (int i = 0; i < 8; i++)
+	{
+		for (int j = 0; j < 8; j++)
+		{
+			if ((i + j) % 2 == 0)
+			{
+				drawbox(rows / 7 + i * height, 2 + j * width, height, width, YELLOW, i, j);
+			}
+			else
+			{
+				drawbox(rows / 7 + i * height, 2 + j * width, height, width, GREEN, i, j);
+			}
+		}
+	}
+
+}
