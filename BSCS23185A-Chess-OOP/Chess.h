@@ -49,6 +49,8 @@ public:
 	void computehiglight(bool**& bmap, int psr, int psc, int pdr, int pdc);
 	void higlighting(bool**& bmap, int height, int width);
 	void unhiglighting(bool**& bmap, int height, int width);
+	bool checkpawnpromote(char ch);
+	void pawnpromotiongraphics(int height, int width, int clr, board* b, int _dr, int _dc);
 
 
 
