@@ -182,6 +182,22 @@ bool chess::isvaliddes(int i, int j, player* pla)
 }
 
 
+bool chess::isvalidsource(int i, int j, player* p)
+{
+	if (this->sr < 0 || this->sc < 0 || this->sr >= 8 || this->sc >= 8)
+	{
+		return false;
+	}
+
+	Piece* ptr = b->getpiece(i, j);
+	if (ptr == nullptr)
+	{
+		return false;
+	}
+	return ptr->ismypiece(i, j, p);
+
+}
+
 
 
 
