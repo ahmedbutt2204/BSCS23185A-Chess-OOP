@@ -91,4 +91,31 @@ board::board()
 }
 
 
+void board::drawbox(int sr, int sc, int height, int width, int clr, int p1, int p2)
+{
+	for (int i = 0; i < height; i++)
+	{
+		for (int j = 0; j < width; j++)
+		{
+			gotoRowCol(i + sr, j + sc);
+			SetClr(clr);
+			std::cout << char(-37);
+		}
+	}
+
+	for (int r = 0; r < height; r++)
+	{
+		for (int c = 0; c < width; c++)
+		{
+			if (r == height / 2 && c == width / 2 && ps[p1][p2] != nullptr)
+			{
+				int color = ps[p1][p2]->getpiececolor();
+				ps[p1][p2]->drawpieces(r + sr, c + sc, color, 5);
+				SetClr(clr);
+			}
+
+		}
+	}
+
+}
 
