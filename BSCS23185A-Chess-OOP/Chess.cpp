@@ -108,6 +108,23 @@ void unemptybox(int Sr, int Sc, int height, int width, int clr)
 	SetClr(WHITE);
 }
 
+void pawnemptybox(int Sr, int Sc, int height, int width, int clr)
+{
+	for (int i = 0; i < height; i++)
+	{
+		for (int j = 0; j < width; j++)
+		{
+			if (i == 0 || j == 0 || i == height - 1 || j == width - 1)
+			{
+
+				gotoRowCol(i + Sr, j + Sc);
+				SetClr(clr);
+				std::cout << char(-37);
+			}
+		}
+	}
+}
+
 
 
 
