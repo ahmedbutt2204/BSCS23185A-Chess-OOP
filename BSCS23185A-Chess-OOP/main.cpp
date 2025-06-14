@@ -68,5 +68,21 @@ void line(std::string& p1, std::string& p2, int& ti)
 	std::cin >> ti;
 }
 
+int main()
+{
+	mainbox(22, 30, 45, 55, BLUE);
+	std::string p1;
+	std::string p2;
+	int ti = 0;
+	line(p1, p2, ti);
+
+	chess C(p1, p2, ti);
+	Sleep(10);
+	system("cls");
+	C.chessplay();
+
+	_getch();  // Wait for key before exiting
+	return 0;
+}
 
 
