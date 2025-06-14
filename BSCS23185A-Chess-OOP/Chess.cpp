@@ -141,4 +141,23 @@ void chess::sourceposition(int& _f, int& _g)
 	this->sc = this->sc / 8;
 }
 
+void chess::desposition()
+{
+	getRowColbyLeftClick(this->dr, this->dc);
+	this->dr = this->dr - 2;
+	this->dr = this->dr / 8 - 1;
+
+	this->dc = this->dc / 8;
+
+}
+
+
+
+
+
+
+
+
+
+
 
