@@ -12,4 +12,4 @@ public:
 	virtual void setcaslaval(bool _set);
 };
 
-  
+     
