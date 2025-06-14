@@ -10,6 +10,6 @@ public:
 	virtual char getpiecesymbol(int i, int j);
 	virtual bool getcaslaval();
 	virtual void setcaslaval(bool _set);
-};
+}//ok
 
      
