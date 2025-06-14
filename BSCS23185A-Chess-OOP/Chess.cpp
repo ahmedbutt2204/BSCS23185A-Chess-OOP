@@ -624,6 +624,199 @@ void chess::castlecheck(board* ptr, int _sr, int _sc, int _t)
 	}
 }
 
+struct position
+{
+	int _psr;
+	int _psc;
+	int _pdr;
+	int _pdc;
+};
+
+void chess::chessplay()
+{
+	int h = 8;
+	std::stack<board> undo;
+	std::stack<board> redo;
+	char ch;
+	//drawboard(9,9);
+	bool** bmap = nullptr;
+	char cha = getchar();
+	drawundobutton();
+	drawredobutton();
+	this->parray[this->turn]->displaytime(this->turn);
+	turnchange();
+	this->parray[(this->turn)]->displaytime((this->turn));
+	turnchange();
+	int time = 0;
+	int psr = -1;
+	int psc = -1;
+	int pdr = -1;
+	int pdc = -1;
+
+	int count = 0;
+	std::vector<position> save;
+	save.push_back({ -1 ,-1,-1,-1 });
+
+
+	while (true)
+	{
+
+
+		b->displayboard(h, h);
+		board store;
+		store = b;
+		undo.push(store);
+		displayturnmsg(parray[this->turn]);
+
+		int _f = 0; int _g = 0;
+		//while (true)
+		//{
+		//	int f, g;
+		//	getRowColbyleftclick(f, g);
+		//}
+
+		auto start = std::chrono::high_resolution_clock::now();
+		do
+		{
+			do
+			{
+				do
+				{
+					sourceposition(_f, _g);
+					//this->parray[this->turn]->settime(time);
+					//this->parray[this->turn]->displaytime(this->turn);
+					if (undocheck(_f, _g))
+					{
+						if (undo.size() != 1)
+						{
+							int i = 1;
+							redo.push(undo.top());
+							undo.pop();
+							board store1 = (undo.top());
+							*(this)->b = store1;
+							b->displayboard(h, h);
+							turnchange();
+							displayturnmsg(this->parray[this->turn]);
+							psr = save[save.size() - 1 - i]._psr;
+							psc = save[save.size() - 1 - i]._psc;
+							pdr = save[save.size() - 1 - i]._pdr;
+							pdc = save[save.size() - 1 - i]._pdc;
+							i--;
+							gotoRowCol(14, 80);
+							std::cout << "                               ";
+						}
+
+					}
+
+					if (redocheck(_f, _g))
+					{
+						if (redo.size() != 0)
+						{
+							board store2 = redo.top();
+							*(this)->b = store2;
+							redo.pop();
+							b->displayboard(h, h);
+							turnchange();
+							displayturnmsg(this->parray[this->turn]);
+							gotoRowCol(14, 80);
+							std::cout << "                               ";
+						}
+					}
+
+				} while (!isvalidsource(this->sr, this->sc, parray[this->turn]));
+
+
+				computehiglight(bmap, psr, psc, pdr, pdc);
+				higlighting(bmap, h, h);
+				desposition();
+				//this->parray[this->turn]->settime(time);
+				//this->parray[this->turn]->displaytime(this->turn);
+				unhiglighting(bmap, h, h);
+
+
+			} while (!isvaliddes(this->dr, this->dc, parray[this->turn])
+				|| selfcheck(this->sr, this->sc, this->dr, this->dc, psr, psc, pdr, pdc) == true);
+
+		} while (b->getpiece(this->sr, this->sc) != nullptr && !b->getpiece(this->sr, this->sc)->islegalmove(this->sr, this->sc, this->dr, this->dc, this->turn, this->b, this->parray[this->turn], psr, psc, pdr, pdc));
+
+		psr = this->sr;
+		psc = this->sc;
+		pdr = this->dr;
+		pdc = this->dc;
+		/*count++;
+		save[count]._psr = psr;
+		save[count]._psc = psc;
+		save[count]._pdr = pdr;
+		save[count]._pdc = pdc;*/
+
+		save.push_back({ psr, psc, pdr, pdc });
+
+		castlecheck(this->b, this->sr, this->sc, this->turn);
+		int i = 0; int j = 0;
+		b->changeboard(this->sr, this->sc, this->dr, this->dc, this->b, this->turn, i, j, psr, psc, pdr, pdc);
+		gotoRowCol(14, 80);
+		std::cout << "                                     ";
+		if (b->getpiece(this->dr, this->dc) != nullptr)
+		{
+			ch = b->getpiece(this->dr, this->dc)->getpiecesymbol(this->dr, this->dc);
+			if (checkpawnpromote(ch))
+			{
+				/*gotoRowCol(14, 80);
+				std::cout << "Pawn promotion" << std::endl;*/
+				pawnpromotiongraphics(13, 13, RED, this->b, this->dr, this->dc);
+				system("cls");
+			}
+
+		}
+
+
+		if (check(psr, psc, pdr, pdc))
+		{
+			if (checkmate(psr, psc, pdr, pdc))
+			{
+				system("cls");
+				gotoRowCol(14, 50);
+				std::cout << "Checkmate !!!" << std::endl;
+				turnchange();
+				std::cout << parray[this->turn]->getpnamecolr() << " won the game " << std::endl;
+				exit(1);
+			}
+			turnchange();
+			gotoRowCol(14, 80);
+			std::cout << parray[this->turn]->getpnamecolr() << " is in check" << std::endl;
+			turnchange();
+		}
+
+
+
+		/*int f, g;
+		do
+		{
+			getRowColbyLeftClick(f,g);
+			undo.pop();
+			b = undo.top();
+		} while ((f>=42 && f<=54) && (g>=72 && g<=82) );*/
+
+		auto end = std::chrono::high_resolution_clock::now();
+		auto duration = std::chrono::duration_cast<std::chrono::seconds>(end - start);
+		time = duration.count();
+
+		this->parray[this->turn]->settime(time);
+		if (this->parray[this->turn]->gettime() == 0)
+		{
+			system("cls");
+			gotoRowCol(14, 50);
+			std::cout << "Time finished !!!!" << std::endl;
+			exit(1);
+		}
+		this->parray[this->turn]->displaytime(this->turn);
+
+		turnchange();
+
+
+	}
+
+}
 
 
 
